@@ -9,9 +9,11 @@ class SnippetSerializer(serializers.ModelSerializer):
     # linenos = serializers.BooleanField(required=False)
     # language = serializers.ChoiceField(choices=LANGUAGES_CHOICES, default='python')
     style = serializers.ChoiceField(choices=STYLE_CHOICES, default='friendly')
+
     class Meta:
         model = Snippet
         fields = ['id', 'title', 'code', 'linenos', 'language', 'style']
+
     def create(self, validated_data):
         """
         Create and return a new Snippet instance, given the validated data.
